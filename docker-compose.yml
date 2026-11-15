@@ -1,0 +1,15 @@
+# Dipakai di VM (disalin otomatis oleh GitHub Actions ke ~/apps/tristan-frontend)
+services:
+  frontend:
+    image: ghcr.io/michaeltristan8/tristan-frontend:latest
+    container_name: service-motor-frontend
+    restart: unless-stopped
+    ports:
+      - "${FRONTEND_PORT:-8080}:80"
+    networks:
+      - service-motor
+
+networks:
+  service-motor:
+    external: true
+    name: service-motor
