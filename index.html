@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Service Motor</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">⚙</span>
+      <div>
+        <h1>Service Motor</h1>
+        <p class="sub">Catat servis, jangan lupa jadwal berikutnya</p>
+      </div>
+    </div>
+    <span id="mode-badge" class="mode-badge" title="">…</span>
+  </header>
+
+  <nav class="tabs" role="tablist">
+    <button class="tab active" data-view="dashboard" role="tab">Pengingat</button>
+    <button class="tab" data-view="motors" role="tab">Motor saya</button>
+  </nav>
+
+  <main>
+    <!-- DASHBOARD -->
+    <section id="view-dashboard" class="view">
+      <div class="stats" id="stats"></div>
+      <div class="section-head">
+        <h2>Jadwal servis berikutnya</h2>
+      </div>
+      <div id="reminder-list" class="list"></div>
+    </section>
+
+    <!-- MOTOR LIST -->
+    <section id="view-motors" class="view hidden">
+      <div class="section-head">
+        <h2>Motor saya</h2>
+        <button class="btn primary" id="btn-add-motor">+ Tambah motor</button>
+      </div>
+      <div id="motor-list" class="grid"></div>
+    </section>
+
+    <!-- MOTOR DETAIL -->
+    <section id="view-detail" class="view hidden">
+      <button class="btn ghost back" id="btn-back">← Kembali</button>
+      <div id="motor-detail"></div>
+      <div class="section-head">
+        <h2>Riwayat servis</h2>
+        <button class="btn primary" id="btn-add-service">+ Catat servis</button>
+      </div>
+      <div id="service-list" class="list"></div>
+    </section>
+  </main>
+
+  <!-- MODAL -->
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h3 id="modal-title"></h3>
+        <button class="icon-btn" id="modal-close" aria-label="Tutup">×</button>
+      </div>
+      <form id="modal-form"></form>
+    </div>
+  </div>
+
+  <!-- DIALOG KONFIRMASI -->
+  <div id="confirm" class="modal hidden" role="alertdialog" aria-modal="true">
+    <div class="modal-card" style="max-width:380px">
+      <p id="confirm-msg" style="margin:0 0 16px"></p>
+      <div class="form-actions">
+        <button class="btn" id="confirm-no">Batal</button>
+        <button class="btn primary" id="confirm-yes">Ya, lanjutkan</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
